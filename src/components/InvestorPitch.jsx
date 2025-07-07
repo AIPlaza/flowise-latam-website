@@ -99,42 +99,49 @@ const InvestorPitch = () => {
   }, [isAutoPlaying, slides.length]);
 
   useEffect(() => {
+    gsap.killTweensOf([slideContentRef.current, ".bg-gradient-to-br"]); // Kill any ongoing animations
+    const backgroundOverlay = document.querySelector('.bg-gradient-to-br');
     // Global slide transition
-    gsap.fromTo(slideContentRef.current, 
-      { opacity: 0, y: 50, scale: 0.95 }, 
-      { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power3.out" }
+    gsap.fromTo(slideContentRef.current,
+      { opacity: 0, y: 20, scale: 0.98 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "power2.out" }
     );
+
+    // Animate background gradient overlay opacity
+    gsap.fromTo(backgroundOverlay, { opacity: 0.1 }, { opacity: 0.2, duration: 0.6, ease: "power1.out" });
 
     // Specific animations based on slide ID
     const currentSlideId = slides[currentSlide].id;
     if (currentSlideId === 'hero') {
-      gsap.fromTo(".hero-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.2 });
-      gsap.fromTo(".hero-subtitle", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.4 });
-      gsap.fromTo(".hero-content", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.6 });
-      gsap.fromTo(".hero-metric", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.7)", stagger: 0.1, delay: 0.8 });
+      gsap.fromTo(".hero-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", delay: 0.1 }); // Delay slightly after slide transition
+      gsap.fromTo(".hero-subtitle", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out", delay: 0.2 }); // Delay slightly after title
+      gsap.fromTo(".hero-content", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", delay: 0.3 });
+      gsap.fromTo(".hero-metric", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.7)", stagger: 0.1, delay: 0.5 });
     } else if (currentSlideId === 'opportunity') {
-      gsap.fromTo(".market-data-item", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", stagger: 0.1 });
-      gsap.fromTo(".adoption-rate-card", { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out", delay: 0.3 });
+      gsap.fromTo(".market-data-item", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", stagger: 0.1, delay: 0.2 });
+      gsap.fromTo(".adoption-rate-card", { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out", delay: 0.4 });
     } else if (currentSlideId === 'problem') {
       gsap.fromTo(".problem-card", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.7)", stagger: 0.15 });
       gsap.fromTo(".problem-list-item", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out", stagger: 0.05, delay: 0.3 });
       gsap.fromTo(".market-validation-card", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.4 });
     } else if (currentSlideId === 'solution') {
-      gsap.fromTo(".solution-card", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.7, ease: "power2.out", stagger: 0.15 });
-      gsap.fromTo(".value-chain-item", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", stagger: 0.1, delay: 0.3 });
+      gsap.fromTo(".solution-card", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out", stagger: 0.15, delay: 0.2 });
+      gsap.fromTo(".value-chain-item", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)", stagger: 0.1, delay: 0.5 });
+      gsap.fromTo(".value-chain-item ~ .lucide-arrow-right", { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out", stagger: 0.1, delay: 0.5 });
     } else if (currentSlideId === 'business') {
       gsap.fromTo(".revenue-stream-item", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.7)", stagger: 0.1 });
       gsap.fromTo(".recurring-revenue-card", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.3 });
-    } else if (currentSlideId === 'financials') {
-      gsap.fromTo(".financial-metric-card", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", stagger: 0.1 });
-      gsap.fromTo(".financial-list-item", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out", stagger: 0.05, delay: 0.3 });
-    } else if (currentSlideId === 'competitive') {
+    } else if (currentSlideId === 'financials') { // Added animations for financials slide
+      gsap.fromTo(".financial-metric-card", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", stagger: 0.15, delay: 0.2 });
+      // gsap.fromTo(".financial-list-item", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out", stagger: 0.05, delay: 0.4 }); // This is handled by the financials-list-container animation
+      gsap.fromTo(".financials-list-container", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power2.out", stagger: 0.15, delay: 0.3 }); // Ensure this matches the class in the JSX
+      gsap.fromTo(".financial-list-item", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out", stagger: 0.05, delay: 0.4 });
+    }  else if (currentSlideId === 'competitive') {
       gsap.fromTo(".competitive-advantage-item", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.7)", stagger: 0.15 });
       gsap.fromTo(".market-position-item", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", stagger: 0.1, delay: 0.3 });
     } else if (currentSlideId === 'ask') {
       gsap.fromTo(".ask-amount", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 1, ease: "elastic.out(1, 0.5)", delay: 0.2 });
-      gsap.fromTo(".ask-text", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", stagger: 0.1, delay: 0.5 });
-      gsap.fromTo(".ask-button", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out", stagger: 0.1, delay: 0.8 });
+      gsap.fromTo(".ask-text", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", stagger: 0.1, delay: 0.3 });
     }
   }, [currentSlide, slides]);
 
@@ -175,22 +182,38 @@ const InvestorPitch = () => {
     i18n.changeLanguage(lang);
   };
 
-  const renderSlideContent = (slide) => {
+  const handlePrev = () => {
+    setIsAutoPlaying(false);
+    setCurrentSlide(prev => (prev - 1 + slides.length) % slides.length);
+    gsap.fromTo(".nav-button-prev", { scale: 1 }, { scale: 0.95, duration: 0.1, yoyo: true, repeat: 1 });
+  };
+
+  const handleNext = () => {
+    setIsAutoPlaying(false);
+    setCurrentSlide(prev => (prev + 1) % slides.length);
+    gsap.fromTo(".nav-button-next", { scale: 1 }, { scale: 0.95, duration: 0.1, yoyo: true, repeat: 1 });
+  };
+
+  const handleDotClick = (index) => {
+    setIsAutoPlaying(false);
+    setCurrentSlide(index);
+  };
+    const renderSlideContent = (slide) => {
     switch (slide.id) {
       case 'hero':
         return (
           <div className="text-center space-y-8">
-            <div className="relative">
+            <div className="relative mb-4 sm:mb-6 md:mb-8">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 blur-3xl rounded-full"></div>
-              <h1 className="relative text-6xl font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent hero-title">
+              <h1 className="relative text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent hero-title leading-tight">
                 {t('pitch.slides.hero.title')}
               </h1>
             </div>
-            <div className="space-y-4">
-              <p className="text-2xl text-gray-300 hero-subtitle">{t('pitch.slides.hero.subtitle')}</p>
-              <p className="text-lg text-gray-400 hero-content">{t('pitch.slides.hero.content')}</p>
+            <div className="space-y-2 sm:space-y-3 md:space-y-4">
+              <p className="text-xl sm:text-2xl text-gray-300 hero-subtitle">{t('pitch.slides.hero.subtitle')}</p>
+              <p className="text-base sm:text-lg text-gray-400 hero-content">{t('pitch.slides.hero.content')}</p>
             </div>
-            <div className="flex justify-center space-x-8 pt-8">
+            <div className="flex justify-center space-x-4 sm:space-x-6 md:space-x-8 pt-8">
               <div className="text-center hero-metric">
                 <div className="text-3xl font-bold text-cyan-400">🚀</div>
                 <div className="text-sm text-gray-400">{t('pitch.slides.hero.firstMover')}</div>
@@ -211,11 +234,11 @@ const InvestorPitch = () => {
         return (
           <div className="space-y-8">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-white">{t('pitch.slides.opportunity.subtitle')}</h2>
-              <p className="text-xl text-gray-300">{t('pitch.slides.opportunity.content')}</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight">{t('pitch.slides.opportunity.subtitle')}</h2>
+              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">{t('pitch.slides.opportunity.content')}</p>
             </div>
-            <div className="grid grid-cols-2 gap-6">
-              {marketData.map((item, idx) => (
+            <div className="grid grid-cols-2 gap-4 md:gap-6">
+              {marketData.map((item, idx) => ( // Staggered animation for market data items
                 <div key={idx} className="bg-gray-800/50 backdrop-blur-md rounded-xl p-6 border border-gray-700 market-data-item glassmorphism-card">
                   <div className="text-center space-y-2">
                     <div className={`text-3xl font-bold bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>
@@ -226,7 +249,7 @@ const InvestorPitch = () => {
                 </div>
               ))}
             </div>
-            <div className="bg-gradient-to-r from-purple-500/10 to-cyan-500/10 rounded-xl p-6 border border-purple-500/20 adoption-rate-card glassmorphism-card">
+            <div className="bg-gradient-to-r from-purple-500/10 to-cyan-500/10 rounded-xl p-6 border border-purple-500/20 adoption-rate-card glassmorphism-card"> {/* Animation for adoption rate card */}
               <div className="flex items-center space-x-4">
                 <TrendingUp className="text-green-400" size={32} />
                 <div>
@@ -241,12 +264,12 @@ const InvestorPitch = () => {
       case 'problem':
         return (
           <div className="space-y-8">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-white">{t('pitch.slides.problem.title')}</h2>
-              <p className="text-xl text-gray-300">{t('pitch.slides.problem.content')}</p>
+            <div className="text-center space-y-3 sm:space-y-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight">{t('pitch.slides.problem.title')}</h2>
+              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">{t('pitch.slides.problem.content')}</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-red-500/10 rounded-xl p-6 border border-red-500/20 problem-card glassmorphism-card">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              <div className="bg-red-500/10 rounded-xl p-4 md:p-6 border border-red-500/20 problem-card glassmorphism-card">
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Globe className="text-red-400" size={24} />
@@ -259,7 +282,7 @@ const InvestorPitch = () => {
                   </ul>
                 </div>
               </div>
-              <div className="bg-yellow-500/10 rounded-xl p-6 border border-yellow-500/20 problem-card glassmorphism-card">
+              <div className="bg-yellow-500/10 rounded-xl p-4 md:p-6 border border-yellow-500/20 problem-card glassmorphism-card">
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Users className="text-yellow-400" size={24} />
@@ -273,10 +296,10 @@ const InvestorPitch = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-xl p-6 border border-orange-500/20 market-validation-card glassmorphism-card">
+            <div className="bg-gradient-to-r from-orange-500/10 to-red-500/10 rounded-xl p-4 md:p-6 border border-orange-500/20 market-validation-card glassmorphism-card">
               <div className="text-center space-y-2">
-                <div className="text-2xl font-bold text-white">{t('pitch.slides.problem.marketValidation')}</div>
-                <div className="text-gray-300">{t('pitch.slides.problem.chatgptUsage')}</div>
+                <div className="text-xl sm:text-2xl font-bold text-white">{t('pitch.slides.problem.marketValidation')}</div>
+                <div className="text-base sm:text-lg text-gray-300">{t('pitch.slides.problem.chatgptUsage')}</div>
               </div>
             </div>
           </div>
@@ -285,9 +308,9 @@ const InvestorPitch = () => {
       case 'solution':
         return (
           <div className="space-y-8">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-white">{t('pitch.slides.solution.title')}</h2>
-              <p className="text-xl text-gray-300">{t('pitch.slides.solution.content')}</p>
+            <div className="text-center space-y-3 sm:space-y-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight">{t('pitch.slides.solution.title')}</h2>
+              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">{t('pitch.slides.solution.content')}</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-purple-500/10 rounded-xl p-6 border border-purple-500/20 solution-card glassmorphism-card">
@@ -311,15 +334,15 @@ const InvestorPitch = () => {
             </div>
             <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-xl p-6 border border-cyan-500/20 glassmorphism-card">
               <div className="text-center space-y-4">
-                <h3 className="text-xl font-bold text-white">{t('pitch.slides.solution.integratedValueChain')}</h3>
-                <div className="flex justify-center items-center space-x-4 text-sm">
-                  <div className="bg-gray-800 rounded-lg px-4 py-2 value-chain-item glassmorphism-card">{t('pitch.slides.solution.hardware')}</div>
+                <h3 className="text-lg sm:text-xl font-bold text-white">{t('pitch.slides.solution.integratedValueChain')}</h3>
+                <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 text-sm">
+                  <div className="bg-gray-800/50 rounded-lg px-3 py-1 sm:px-4 sm:py-2 value-chain-item glassmorphism-card">{t('pitch.slides.solution.hardware')}</div>
                   <ArrowRight className="text-gray-400" size={16} />
-                  <div className="bg-gray-800 rounded-lg px-4 py-2 value-chain-item glassmorphism-card">{t('pitch.slides.solution.software')}</div>
+                  <div className="bg-gray-800/50 rounded-lg px-3 py-1 sm:px-4 sm:py-2 value-chain-item glassmorphism-card">{t('pitch.slides.solution.software')}</div>
                   <ArrowRight className="text-gray-400" size={16} />
-                  <div className="bg-gray-800 rounded-lg px-4 py-2 value-chain-item glassmorphism-card">{t('pitch.slides.solution.education')}</div>
+                  <div className="bg-gray-800/50 rounded-lg px-3 py-1 sm:px-4 sm:py-2 value-chain-item glassmorphism-card">{t('pitch.slides.solution.education')}</div>
                   <ArrowRight className="text-gray-400" size={16} />
-                  <div className="bg-gray-800 rounded-lg px-4 py-2 value-chain-item glassmorphism-card">{t('pitch.slides.solution.support')}</div>
+                  <div className="bg-gray-800/50 rounded-lg px-3 py-1 sm:px-4 sm:py-2 value-chain-item glassmorphism-card">{t('pitch.slides.solution.support')}</div>
                 </div>
               </div>
             </div>
@@ -329,11 +352,11 @@ const InvestorPitch = () => {
       case 'business':
         return (
           <div className="space-y-8">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-white">{t('pitch.slides.business.title')}</h2>
-              <p className="text-xl text-gray-300">{t('pitch.slides.business.subtitle')}</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="text-center space-y-3 sm:space-y-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">{t('pitch.slides.business.title')}</h2>
+              <p className="text-lg sm:text-xl text-gray-300">{t('pitch.slides.business.subtitle')}</p>
+            </div> {/* Added animation for revenue stream items */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {revenueStreams.map((stream, idx) => (
                 <div key={idx} className="bg-gray-800/50 backdrop-blur-md rounded-xl p-4 border border-gray-700 revenue-stream-item glassmorphism-card">
                   <div className="space-y-3">
@@ -348,11 +371,11 @@ const InvestorPitch = () => {
                   </div>
                 </div>
               ))}
-            </div>
-            <div className="bg-gradient-to-r from-green-500/10 to-cyan-500/10 rounded-xl p-6 border border-green-500/20 recurring-revenue-card glassmorphism-card">
+            </div> {/* Added animation for recurring revenue card */}
+            <div className="bg-gradient-to-r from-green-500/10 to-cyan-500/10 rounded-xl p-4 sm:p-6 border border-green-500/20 recurring-revenue-card glassmorphism-card">
               <div className="text-center space-y-2">
-                <div className="text-2xl font-bold text-white">{t('pitch.slides.business.recurringRevenueModel')}</div>
-                <div className="text-gray-300">{t('pitch.slides.business.subscriptionRevenue')}</div>
+                <div className="text-xl sm:text-2xl font-bold text-white">{t('pitch.slides.business.recurringRevenueModel')}</div>
+                <div className="text-base sm:text-lg text-gray-300">{t('pitch.slides.business.subscriptionRevenue')}</div>
               </div>
             </div>
           </div>
@@ -362,25 +385,25 @@ const InvestorPitch = () => {
         return (
           <div className="space-y-8">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-white">{t('pitch.slides.financials.title')}</h2>
-              <p className="text-xl text-gray-300">{t('pitch.slides.financials.subtitle')}</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">{t('pitch.slides.financials.title')}</h2>
+              <p className="text-lg sm:text-xl text-gray-300">{t('pitch.slides.financials.subtitle')}</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gray-800/50 backdrop-blur-md rounded-xl p-6 border border-gray-700 financial-metric-card glassmorphism-card">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              <div className="bg-gray-800/50 backdrop-blur-md rounded-xl p-4 md:p-6 border border-gray-700 financial-metric-card glassmorphism-card">
                 <div className="text-center space-y-2">
                   <div className="text-2xl font-bold text-green-400">{t('pitch.slides.financials.year1')}</div>
                   <div className="text-3xl font-bold text-white">$35K</div>
                   <div className="text-gray-400">{t('pitch.slides.financials.revenue')}</div>
                 </div>
               </div>
-              <div className="bg-gray-800/50 backdrop-blur-md rounded-xl p-6 border border-gray-700 financial-metric-card glassmorphism-card">
+              <div className="bg-gray-800/50 backdrop-blur-md rounded-xl p-4 md:p-6 border border-gray-700 financial-metric-card glassmorphism-card">
                 <div className="text-center space-y-2">
                   <div className="text-2xl font-bold text-cyan-400">{t('pitch.slides.financials.year3')}</div>
                   <div className="text-3xl font-bold text-white">$2.5M</div>
                   <div className="text-gray-400">{t('pitch.slides.financials.projected')}</div>
                 </div>
               </div>
-              <div className="bg-gray-800/50 backdrop-blur-md rounded-xl p-6 border border-gray-700 financial-metric-card glassmorphism-card">
+              <div className="bg-gray-800/50 backdrop-blur-md rounded-xl p-4 md:p-6 border border-gray-700 financial-metric-card glassmorphism-card">
                 <div className="text-center space-y-2">
                   <div className="text-2xl font-bold text-purple-400">{t('pitch.slides.financials.marketCap')}</div>
                   <div className="text-3xl font-bold text-white">$604M</div>
@@ -388,8 +411,8 @@ const InvestorPitch = () => {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl p-6 border border-blue-500/20 glassmorphism-card">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl p-4 md:p-6 border border-blue-500/20 financials-list-container glassmorphism-card">
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-white">{t('pitch.slides.financials.conservativeMetrics')}</h3>
                   <ul className="space-y-2 text-gray-300">
@@ -400,7 +423,7 @@ const InvestorPitch = () => {
                   </ul>
                 </div>
               </div>
-              <div className="bg-gradient-to-r from-green-500/10 to-yellow-500/10 rounded-xl p-6 border border-green-500/20 glassmorphism-card">
+              <div className="bg-gradient-to-r from-green-500/10 to-yellow-500/10 rounded-xl p-4 md:p-6 border border-green-500/20 financials-list-container glassmorphism-card">
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-white">{t('pitch.slides.financials.growthCatalysts')}</h3>
                   <ul className="space-y-2 text-gray-300">
@@ -419,8 +442,8 @@ const InvestorPitch = () => {
         return (
           <div className="space-y-8">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-white">{t('pitch.slides.competitive.title')}</h2>
-              <p className="text-xl text-gray-300">{t('pitch.slides.competitive.content')}</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight">{t('pitch.slides.competitive.title')}</h2>
+              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">{t('pitch.slides.competitive.content')}</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {competitiveAdvantages.map((advantage, idx) => (
@@ -460,11 +483,11 @@ const InvestorPitch = () => {
       case 'ask':
         return (
           <div className="space-y-8">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-white">{t('pitch.slides.ask.title')}</h2>
-              <p className="text-xl text-gray-300">{t('pitch.slides.ask.subtitle')}</p>
+            <div className="text-center space-y-3 sm:space-y-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight">{t('pitch.slides.ask.title')}</h2>
+              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">{t('pitch.slides.ask.subtitle')}</p>
             </div>
-            <div className="bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-xl p-8 border border-purple-500/30 glassmorphism-card">
+            <div className="bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-xl p-6 sm:p-8 border border-purple-500/30 glassmorphism-card">
               <div className="text-center space-y-6">
                 <div className="text-5xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent ask-amount">
                   $250K
@@ -473,12 +496,12 @@ const InvestorPitch = () => {
                 <div className="text-gray-400 ask-text">
                   {t('pitch.slides.ask.captureMarket')}
                 </div>
-                <div className="flex justify-center space-x-4">
+                <div className="flex justify-center space-x-3 sm:space-x-4">
                   <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out flex items-center space-x-2 ask-button">
                     <DollarSign size={20} />
                     <span>{t('pitch.slides.ask.investNow')}</span>
                   </button>
-                  <button className="bg-gray-700 hover:bg-gray-600 text-gray-200 font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out flex items-center space-x-2 ask-button">
+                  <button className="bg-gray-700 hover:bg-gray-600 text-gray-200 font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out flex items-center space-x-2 ask-button dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-gray-100">
                     <Target size={20} />
                     <span>{t('pitch.slides.ask.learnMore')}</span>
                   </button>
@@ -511,14 +534,12 @@ const InvestorPitch = () => {
                 {slides.map((_, idx) => (
                   <button
                     key={idx}
-                    onClick={() => {
-                      setCurrentSlide(idx);
-                      setIsAutoPlaying(false);
-                    }}
+                    onClick={() => handleDotClick(idx)}
                     className={`w-3 h-3 rounded-full ${
                       currentSlide === idx ? 'bg-blue-500' : 'bg-gray-600 hover:bg-gray-500'
                     } transition duration-200`}
-                  ></button>
+                  >
+                  </button>
                 ))}
               </div>
               <div className="flex space-x-2">
@@ -548,10 +569,7 @@ const InvestorPitch = () => {
 
           <div className="flex justify-between items-center mt-6">
             <button
-              onClick={() => {
-                setCurrentSlide(prev => (prev - 1 + slides.length) % slides.length);
-                setIsAutoPlaying(false);
-              }}
+              onClick={handlePrev}
               className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition duration-200"
             >
               {t('pitch.navigation.previous')}
@@ -561,10 +579,8 @@ const InvestorPitch = () => {
             </div>
             <button
               onClick={() => {
-                setCurrentSlide(prev => (prev + 1) % slides.length);
-                setIsAutoPlaying(false);
-              }}
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition duration-200"
+                handleNext();              }}
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition duration-200 nav-button-next"
             >
               {t('pitch.navigation.next')}
             </button>
@@ -574,5 +590,4 @@ const InvestorPitch = () => {
     </div>
   );
 };
-
 export default InvestorPitch;
