@@ -1,0 +1,127 @@
+{
+  "pitch": {
+    "title": "Flowise LATAM Pitch",
+    "slides": {
+      "hero": {
+        "title": "Flowise LATAM",
+        "subtitle": "Dominating the Spanish AI Services Market",
+        "content": "The #1 Specialized Flowise Provider for 600M+ Spanish Speakers",
+        "firstMover": "First Mover",
+        "marketSize": "$30B Market",
+        "margins": "73% Margins"
+      },
+      "opportunity": {
+        "title": "Market Opportunity",
+        "subtitle": "$30.2B Market by 2033",
+        "content": "AI market in LATAM growing at 22.9% CAGR - 4x faster than Europe",
+        "marketSize2024": "Market Size 2024",
+        "projected2033": "Projected 2033",
+        "cagrGrowth": "CAGR Growth",
+        "spanishSpeakers": "600M+",
+        "adoptionRate": "67% of LATAM enterprises accelerated AI adoption",
+        "globalAverage": "vs 59% global average"
+      },
+      "problem": {
+        "title": "Critical Market Gap",
+        "subtitle": "Massive Underserved Market",
+        "content": "600M+ Spanish speakers with zero specialized Flowise providers",
+        "languageBarriers": "Language Barriers",
+        "llmEnglish": "Most LLMs trained in English",
+        "noSpanishLocalization": "No Spanish localization available",
+        "missingDocumentation": "Technical documentation missing",
+        "skillsGap": "Skills Gap",
+        "aiSkillPremiums": "84% of employers offer AI skill premiums",
+        "demandGrowthMexico": "95% demand growth in Mexico",
+        "noSpecializedTraining": "No specialized training available",
+        "marketValidation": "Market Validation",
+        "chatgptUsage": "76% of Brazilians and 70% of Mexicans use ChatGPT (above 66% global average)"
+      },
+      "solution": {
+        "title": "Our Solution",
+        "subtitle": "Modular AI-as-a-Service Platform",
+        "content": "Complete ecosystem: VPS + Education + Consulting + Localization",
+        "specializedVps": "Specialized VPS",
+        "vpsDescription": "Pre-configured Mini PCs optimized for Flowise with Spanish interface",
+        "educationPlatform": "Education Platform",
+        "educationDescription": "Complete certification program via Hotmart with 25M+ registered users",
+        "integratedValueChain": "Integrated Value Chain",
+        "hardware": "Hardware",
+        "software": "Software",
+        "education": "Education",
+        "support": "Support"
+      },
+      "traction": {
+        "title": "Market Validation",
+        "subtitle": "Proven Demand Signals",
+        "content": "95% growth in AI expert demand in Mexico alone"
+      },
+      "business": {
+        "title": "Business Model",
+        "subtitle": "Multi-Revenue Stream SaaS",
+        "content": "Recurring revenue with 73% average margins",
+        "vpsHosting": "VPS Hosting",
+        "consulting": "Consulting",
+        "education": "Education",
+        "localization": "Localization",
+        "premiumSupport": "Premium Support",
+        "recurringRevenueModel": "Recurring Revenue Model",
+        "subscriptionRevenue": "70% of revenue from monthly subscriptions + premium support"
+      },
+      "financials": {
+        "title": "Financial Projections",
+        "subtitle": "Scalable Growth Path",
+        "content": "$35K Year 1 → $604M Market Potential",
+        "year1": "Year 1",
+        "revenue": "Revenue",
+        "year3": "Year 3",
+        "projected": "Projected",
+        "marketCap": "Market Cap",
+        "totalAddressable": "Total Addressable",
+        "conservativeMetrics": "Conservative Metrics",
+        "clientsPerMonth": "10 clients/month starting",
+        "monthlyGrowth": "15% monthly growth",
+        "averageMargins": "73% average margins",
+        "roiYear1": "286% ROI Year 1",
+        "growthCatalysts": "Growth Catalysts",
+        "latamAiInvestment": "$240M LATAM AI investment 2024",
+        "elearningMarket": "$10B e-learning market by 2025",
+        "governmentPolicies": "Government support policies",
+        "partnershipScalability": "Partnership scalability"
+      },
+      "competitive": {
+        "title": "Competitive Advantage",
+        "subtitle": "First Mover + High Barriers",
+        "content": "Technical expertise + Language localization + Education ecosystem",
+        "firstMoverTitle": "First Mover",
+        "firstMoverDesc": "No specialized Flowise providers in Spanish",
+        "highBarriersTitle": "High Barriers",
+        "highBarriersDesc": "Complex technical + linguistic requirements",
+        "verticalIntegrationTitle": "Vertical Integration",
+        "verticalIntegrationDesc": "Hardware + Software + Education ecosystem",
+        "localPartnershipsTitle": "Local Partnerships",
+        "localPartnershipsDesc": "Scalable distribution without physical presence",
+        "marketPosition": "Market Position",
+        "currentCompetition": "Current Competition",
+        "genericVps": "Generic VPS providers, English-only platforms",
+        "ourAdvantage": "Our Advantage",
+        "specializedLocalized": "Specialized, localized, integrated ecosystem",
+        "barriers": "Barriers",
+        "technicalComplexity": "Technical complexity + language + network effects"
+      },
+      "ask": {
+        "title": "Investment Ask",
+        "subtitle": "Seed Round - $250K",
+        "content": "Capture 15% of specialized AI services market in 3 years",
+        "seedInvestment": "Seed Investment",
+        "captureMarket": "To capture 15% of specialized AI services market in 3 years.",
+        "investNow": "Invest Now",
+        "learnMore": "Learn More"
+      }
+    },
+    "navigation": {
+      "previous": "Previous",
+      "next": "Next",
+      "slideOf": "Slide {{current}} of {{total}}"
+    }
+  }
+}

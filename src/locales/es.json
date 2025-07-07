@@ -1,0 +1,127 @@
+{
+  "pitch": {
+    "title": "Presentación Flowise LATAM",
+    "slides": {
+      "hero": {
+        "title": "Flowise LATAM",
+        "subtitle": "Dominando el Mercado Hispano de Servicios de IA",
+        "content": "El Proveedor #1 Especializado en Flowise para más de 600M de Hispanohablantes",
+        "firstMover": "Pioneros",
+        "marketSize": "Mercado de $30B",
+        "margins": "73% de Margen"
+      },
+      "opportunity": {
+        "title": "Oportunidad de Mercado",
+        "subtitle": "Mercado de $30.2B para 2033",
+        "content": "El mercado de IA en LATAM crece a un CAGR del 22.9% - 4 veces más rápido que Europa",
+        "marketSize2024": "Tamaño del Mercado 2024",
+        "projected2033": "Proyectado 2033",
+        "cagrGrowth": "Crecimiento CAGR",
+        "spanishSpeakers": "600M+",
+        "adoptionRate": "67% de las empresas LATAM aceleraron la adopción de IA",
+        "globalAverage": "vs 59% promedio global"
+      },
+      "problem": {
+        "title": "Brecha Crítica en el Mercado",
+        "subtitle": "Mercado Masivo Desatendido",
+        "content": "Más de 600M de hispanohablantes sin proveedores especializados en Flowise",
+        "languageBarriers": "Barreras Lingüísticas",
+        "llmEnglish": "La mayoría de los LLMs entrenados en inglés",
+        "noSpanishLocalization": "No hay localización en español disponible",
+        "missingDocumentation": "Falta documentación técnica",
+        "skillsGap": "Brecha de Habilidades",
+        "aiSkillPremiums": "84% de los empleadores ofrecen primas por habilidades en IA",
+        "demandGrowthMexico": "95% de crecimiento de la demanda solo en México",
+        "noSpecializedTraining": "No hay formación especializada disponible",
+        "marketValidation": "Validación de Mercado",
+        "chatgptUsage": "76% de brasileños y 70% de mexicanos usan ChatGPT (por encima del 66% promedio global)"
+      },
+      "solution": {
+        "title": "Nuestra Solución",
+        "subtitle": "Plataforma Modular de IA-como-Servicio",
+        "content": "Ecosistema completo: VPS + Educación + Consultoría + Localización",
+        "specializedVps": "VPS Especializado",
+        "vpsDescription": "Mini PCs preconfigurados optimizados para Flowise con interfaz en español",
+        "educationPlatform": "Plataforma Educativa",
+        "educationDescription": "Programa de certificación completo a través de Hotmart con más de 25M de usuarios registrados",
+        "integratedValueChain": "Cadena de Valor Integrada",
+        "hardware": "Hardware",
+        "software": "Software",
+        "education": "Educación",
+        "support": "Soporte"
+      },
+      "traction": {
+        "title": "Validación de Mercado",
+        "subtitle": "Señales de Demanda Comprobadas",
+        "content": "95% de crecimiento en la demanda de expertos en IA solo en México"
+      },
+      "business": {
+        "title": "Modelo de Negocio",
+        "subtitle": "SaaS de Múltiples Fuentes de Ingresos",
+        "content": "Ingresos recurrentes con márgenes promedio del 73%",
+        "vpsHosting": "Alojamiento VPS",
+        "consulting": "Consultoría",
+        "education": "Educación",
+        "localization": "Localización",
+        "premiumSupport": "Soporte Premium",
+        "recurringRevenueModel": "Modelo de Ingresos Recurrentes",
+        "subscriptionRevenue": "70% de los ingresos de suscripciones mensuales + soporte premium"
+      },
+      "financials": {
+        "title": "Proyecciones Financieras",
+        "subtitle": "Ruta de Crecimiento Escalable",
+        "content": "$35K Año 1 → $604M Potencial de Mercado",
+        "year1": "Año 1",
+        "revenue": "Ingresos",
+        "year3": "Año 3",
+        "projected": "Proyectado",
+        "marketCap": "Capitalización de Mercado",
+        "totalAddressable": "Total Abordable",
+        "conservativeMetrics": "Métricas Conservadoras",
+        "clientsPerMonth": "10 clientes/mes al inicio",
+        "monthlyGrowth": "15% de crecimiento mensual",
+        "averageMargins": "73% de márgenes promedio",
+        "roiYear1": "286% ROI Año 1",
+        "growthCatalysts": "Catalizadores de Crecimiento",
+        "latamAiInvestment": "$240M inversión en IA en LATAM 2024",
+        "elearningMarket": "Mercado de e-learning de $10B para 2025",
+        "governmentPolicies": "Políticas de apoyo gubernamental",
+        "partnershipScalability": "Escalabilidad de asociaciones"
+      },
+      "competitive": {
+        "title": "Ventaja Competitiva",
+        "subtitle": "Pioneros + Altas Barreras",
+        "content": "Experiencia técnica + Localización de idiomas + Ecosistema educativo",
+        "firstMoverTitle": "Pioneros",
+        "firstMoverDesc": "No hay proveedores especializados de Flowise en español",
+        "highBarriersTitle": "Altas Barreras",
+        "highBarriersDesc": "Requisitos técnicos + lingüísticos complejos",
+        "verticalIntegrationTitle": "Integración Vertical",
+        "verticalIntegrationDesc": "Ecosistema de Hardware + Software + Educación",
+        "localPartnershipsTitle": "Asociaciones Locales",
+        "localPartnershipsDesc": "Distribución escalable sin presencia física",
+        "marketPosition": "Posición en el Mercado",
+        "currentCompetition": "Competencia Actual",
+        "genericVps": "Proveedores de VPS genéricos, plataformas solo en inglés",
+        "ourAdvantage": "Nuestra Ventaja",
+        "specializedLocalized": "Ecosistema especializado, localizado e integrado",
+        "barriers": "Barreras",
+        "technicalComplexity": "Complejidad técnica + idioma + efectos de red"
+      },
+      "ask": {
+        "title": "Solicitud de Inversión",
+        "subtitle": "Ronda Semilla - $250K",
+        "content": "Capturar el 15% del mercado de servicios de IA especializados en 3 años",
+        "seedInvestment": "Inversión Semilla",
+        "captureMarket": "Para capturar el 15% del mercado de servicios de IA especializados en 3 años.",
+        "investNow": "Invertir Ahora",
+        "learnMore": "Saber Más"
+      }
+    },
+    "navigation": {
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "slideOf": "Diapositiva {{current}} de {{total}}"
+    }
+  }
+}
